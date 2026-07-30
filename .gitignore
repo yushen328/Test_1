@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE/editor files
+.idea/
+.vscode/
+
+# Local data
+data/raw/*.csv
+!data/raw/.gitkeep
+
+# Generated outputs
+models/
+outputs/
+*.joblib
+*.pkl
+
+# OS files
+.DS_Store
+Thumbs.db
