@@ -2,8 +2,8 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 
 
-def show_random_forest_feature_importance(model: Pipeline) -> None:
-    """输出随机森林认为最重要的 15 个特征。"""
+def show_random_forest_feature_importance(model: Pipeline, top_n: int = 5) -> None:
+    """输出随机森林认为最重要的前几个特征。"""
     preprocessor = model.named_steps["preprocessor"]
     regressor = model.named_steps["model"]
 
@@ -14,9 +14,9 @@ def show_random_forest_feature_importance(model: Pipeline) -> None:
     ranking = (
         pd.DataFrame({"feature": feature_names, "importance": importances})
         .sort_values("importance", ascending=False)
-        .head(15)
+        .head(top_n)
     )
 
-    print("\n随机森林最重要的 15 个特征")
-    print("-" * 24)
+    print(f"\n随机森林特征重要性分析（前 {top_n} 个，仅用于解释）")
+    print("-" * 38)
     print(ranking.to_string(index=False))
