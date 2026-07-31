@@ -2,6 +2,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 
 
+
 def get_models() -> dict:
     """准备要训练的模型。"""
     return {
